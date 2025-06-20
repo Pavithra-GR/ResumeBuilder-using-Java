@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${resume.id == null} ? 'Create Resume' : 'Edit Resume'"></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 th:text="${resume.id == null} ? 'Create Resume' : 'Edit Resume'"></h2>
+        <div th:if="${message}" class="success-message">
+            <p th:text="${message}"></p>
+        </div>
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        <form th:action="@{${resume.id == null} ? '/submit-resume' : '/update-resume'}" th:object="${resume}" method="post" class="form">
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-group">
+                <label for="fullName" class="form-label">Full Name:</label>
+                <input type="text" id="fullName" th:field="*{fullName}" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" th:field="*{email}" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="form-label">Phone:</label>
+                <input type="text" id="phone" th:field="*{phone}" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="linkedin" class="form-label">LinkedIn:</label>
+                <input type="text" id="linkedin" th:field="*{linkedin}" class="form-input" required>
+            </div>
+            <div class="form-group">
+                <label for="education" class="form-label">Education:</label>
+                <textarea id="education" th:field="*{education}" class="form-input" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="experience" class="form-label">Experience:</label>
+                <textarea id="experience" th:field="*{experience}" class="form-input"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="skills" class="form-label">Skills:</label>
+                <textarea id="skills" th:field="*{skills}" class="form-input" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="projects" class="form-label">Projects:</label>
+                <textarea id="projects" th:field="*{projects}" class="form-input" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="achievements" class="form-label">Achievements:</label>
+                <textarea id="achievements" th:field="*{achievements}" class="form-input"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certification" class="form-label">Certifications:</label>
+                <textarea id="certification" th:field="*{certification}" class="form-input" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="form-button">Submit</button>
+            </div>
+        </form>
+        <p class="form-link"><a th:href="@{/home}">Back to Home</a></p>
+    </div>
+</body>
+</html>

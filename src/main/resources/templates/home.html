@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, <span th:text="${username}"></span>!</h2>
+        <div th:if="${message}" class="success-message">
+            <p th:text="${message}"></p>
+        </div>
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        <div class="nav-buttons">
+            <a th:href="@{/create-resume}" class="button">Create New Resume</a>
+            <a th:href="@{/view-resumes}" class="button">View Resumes</a>
+            <a th:href="@{/logout}" class="button">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

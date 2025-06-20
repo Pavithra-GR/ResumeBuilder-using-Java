@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Logged Out Successfully</h1>
+        <div th:if="${message}" class="success-message">
+            <p th:text="${message}"></p>
+        </div>
+        <div th:if="${error}" class="error-message">
+            <p th:text="${error}"></p>
+        </div>
+        <div class="nav-buttons">
+            <a th:href="@{/register}" class="button">Register</a>
+            <a th:href="@{/login}" class="button">Login</a>
+        </div>
+    </div>
+</body>
+</html>

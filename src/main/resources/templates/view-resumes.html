@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Resumes</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Resumes</h1>
+        <div class="nav-buttons">
+            <a th:href="@{/create-resume}" class="button">Create New Resume</a>
+            <a th:href="@{/home}" class="button">Back to Home</a>
+            <a th:href="@{/logout}" class="button">Logout</a>
+        </div>
+        <div th:if="${resumes != null and not #lists.isEmpty(resumes)}">
+            <div th:each="resume : ${resumes}" class="resume">
+                <div class="header">
+                    <h2 th:text="${resume.fullName}"></h2>
+                    <div class="contact-info">
+                        <p><span class="label">Email:</span> <span th:text="${resume.email}"></span></p>
+                        <p><span class="label">Phone:</span> <span th:text="${resume.phone}"></span></p>
+                        <p><span class="label">LinkedIn:</span> <a th:href="${resume.linkedin}" th:text="${resume.linkedin}"></a></p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <p th:utext="${#strings.replace(resume.education, '\n', '<br/>')}"></p>
+                </div>
+                <div class="section">
+                    <h3>Experience</h3>
+                    <p th:utext="${#strings.replace(resume.experience, '\n', '<br/>')}"></p>
+                </div>
+                <div class="section">
+                    <h3>Skills</h3>
+                    <p th:utext="${#strings.replace(resume.skills, '\n', '<br/>')}"></p>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <p th:utext="${#strings.replace(resume.projects, '\n', '<br/>')}"></p>
+                </div>
+                <div class="section">
+                    <h3>Achievements</h3>
+                    <p th:utext="${#strings.replace(resume.achievements, '\n', '<br/>')}"></p>
+                </div>
+                <div class="section">
+                    <h3>Certifications</h3>
+                    <p th:utext="${#strings.replace(resume.certification, '\n', '<br/>')}"></p>
+                </div>
+                <div class="actions">
+                    <a th:href="@{/edit-resume/{id}(id=${resume.id})}" class="button">Edit Resume</a>
+                    <a th:href="@{/download-resume/{id}(id=${resume.id})}" class="button download-button">Download Resume</a>
+                    <form th:action="@{/delete-resume/{id}(id=${resume.id})}" method="post" style="display:inline;">
+                        <button type="submit" class="button delete-button" onclick="return confirm('Are you sure you want to delete this resume?')">Delete Resume</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div th:if="${resumes == null or #lists.isEmpty(resumes)}" class="no-resumes">
+            <p>No resumes found. <a th:href="@{/create-resume}">Create one now</a>.</p>
+        </div>
+    </div>
+</body>
+</html>
