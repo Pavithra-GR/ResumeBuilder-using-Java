@@ -3,7 +3,6 @@
 A simple, full-stack **Resume Builder** web application built with **Java**, **Spring Boot**, and **JPA/Hibernate** for the backend, and **HTML/CSS** with **Thymeleaf** for the frontend.
 
 
-
 ## 🛠️ Tech Stack
 
 - **Java 17+**
@@ -15,7 +14,6 @@ A simple, full-stack **Resume Builder** web application built with **Java**, **S
 - **HTML5**
 - **CSS3**
 
----
 
 ## 🌐 Application URL
 
@@ -24,7 +22,7 @@ A simple, full-stack **Resume Builder** web application built with **Java**, **S
 
 > 📌 You must clone and run the project locally to use the app.
 
----
+
 ## 💡 Features
 
 - User registration form to input resume details
