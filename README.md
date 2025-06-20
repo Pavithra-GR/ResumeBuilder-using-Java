@@ -2,7 +2,7 @@
 
 A simple, full-stack **Resume Builder** web application built with **Java**, **Spring Boot**, and **JPA/Hibernate** for the backend, and **HTML/CSS** with **Thymeleaf** for the frontend.
 
----
+
 
 ## 🛠️ Tech Stack
 
