@@ -19,11 +19,12 @@ A simple, full-stack **Resume Builder** web application built with **Java**, **S
 
 ## 🌐 Application URL
 
-- Access the registration page:  
-  [http://localhost:8080/register](http://localhost:8080/register)
+- Access the registration page locally:  
+  👉 [http://localhost:8080/register](http://localhost:8080/register)
+
+> 📌 You must clone and run the project locally to use the app.
 
 ---
-
 ## 💡 Features
 
 - User registration form to input resume details
